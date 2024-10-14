@@ -1,6 +1,6 @@
 import { PublicKey } from '@solana/web3.js';
 
-export const MPL_NOOP_ADDRESS = 'noopb9bkMVfRPU8AsbpTUg8AQkHtKwMYZiFUjNRtMmV';
+export const MPL_NOOP_ADDRESS = 'mnoopTCrg4p8ry25e4bcWA9XZjbNjMTfgYVGGEdRsf3';
 export const MPL_NOOP_PROGRAM_ID = new PublicKey(MPL_NOOP_ADDRESS);
 
 /**

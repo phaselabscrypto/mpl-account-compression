@@ -1,8 +1,8 @@
 [programs.localnet]
-mpl_account_compression = "cmtDvXumGCrqC1Age74AVPhSRVXJMd8PJS91L8KbNCK"
+mpl_account_compression = "mcmt6YrQEMKw8Mw43FmpRLmf7BqRnFMKmAcbxE3xkAW"
 
 [[test.genesis]]
-address = "noopb9bkMVfRPU8AsbpTUg8AQkHtKwMYZiFUjNRtMmV"
+address = "mnoopTCrg4p8ry25e4bcWA9XZjbNjMTfgYVGGEdRsf3"
 program = "./target/deploy/wrapper.so"
 
 [registry]

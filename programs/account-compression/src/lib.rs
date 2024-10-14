@@ -60,7 +60,7 @@ pub use spl_concurrent_merkle_tree::{
     node::EMPTY,
 };
 
-declare_id!("cmtDvXumGCrqC1Age74AVPhSRVXJMd8PJS91L8KbNCK");
+declare_id!("mcmt6YrQEMKw8Mw43FmpRLmf7BqRnFMKmAcbxE3xkAW");
 
 /// Context for initializing a new SPL ConcurrentMerkleTree
 #[derive(Accounts)]
@@ -132,7 +132,7 @@ pub struct CloseTree<'info> {
 }
 
 #[program]
-pub mod spl_account_compression {
+pub mod mpl_account_compression {
     use super::*;
 
     /// Creates a new merkle tree with maximum leaf capacity of `power(2, max_depth)`

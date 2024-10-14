@@ -7,8 +7,8 @@ const binaryInstallDir = path.join(__dirname, '..', 'target', 'solita');
 
 module.exports = {
     idlGenerator: 'anchor',
-    programName: 'spl_account_compression',
-    programId: 'cmtDvXumGCrqC1Age74AVPhSRVXJMd8PJS91L8KbNCK',
+    programName: 'mpl_account_compression',
+    programId: 'mcmt6YrQEMKw8Mw43FmpRLmf7BqRnFMKmAcbxE3xkAW',
     idlDir,
     sdkDir,
     binaryInstallDir,

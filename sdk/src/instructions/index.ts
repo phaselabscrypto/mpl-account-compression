@@ -1,7 +1,7 @@
 import { Connection, PublicKey, SystemProgram, TransactionInstruction } from '@solana/web3.js';
 
 import { getConcurrentMerkleTreeAccountSize } from '../accounts';
-import { SPL_NOOP_PROGRAM_ID, ValidDepthSizePair } from '../constants';
+import { MPL_NOOP_PROGRAM_ID, ValidDepthSizePair } from '../constants';
 import {
     createAppendCanopyNodesInstruction,
     createAppendInstruction,
@@ -50,7 +50,7 @@ export function createInitEmptyMerkleTreeIx(
         {
             authority: authority,
             merkleTree,
-            noop: SPL_NOOP_PROGRAM_ID,
+            noop: MPL_NOOP_PROGRAM_ID,
         },
         depthSizePair,
     );
@@ -72,7 +72,7 @@ export function prepareTreeIx(
         {
             authority: authority,
             merkleTree,
-            noop: SPL_NOOP_PROGRAM_ID,
+            noop: MPL_NOOP_PROGRAM_ID,
         },
         depthSizePair,
     );
@@ -96,7 +96,7 @@ export function createAppendCanopyNodesIx(
         {
             authority,
             merkleTree,
-            noop: SPL_NOOP_PROGRAM_ID,
+            noop: MPL_NOOP_PROGRAM_ID,
         },
         {
             canopyNodes: canopyNodes.map(node => Array.from(node)),
@@ -134,7 +134,7 @@ export function createInitPreparedTreeWithRootIx(
             }),
             authority,
             merkleTree,
-            noop: SPL_NOOP_PROGRAM_ID,
+            noop: MPL_NOOP_PROGRAM_ID,
         },
         {
             rightmostIndex,
@@ -163,7 +163,7 @@ export function createReplaceIx(
             {
                 authority: authority,
                 merkleTree,
-                noop: SPL_NOOP_PROGRAM_ID,
+                noop: MPL_NOOP_PROGRAM_ID,
             },
             {
                 index: proof.leafIndex,
@@ -192,7 +192,7 @@ export function createAppendIx(
         {
             authority: authority,
             merkleTree,
-            noop: SPL_NOOP_PROGRAM_ID,
+            noop: MPL_NOOP_PROGRAM_ID,
         },
         {
             leaf: Array.from(newLeaf),

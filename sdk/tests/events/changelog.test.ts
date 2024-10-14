@@ -7,7 +7,7 @@ import { Connection, Keypair, PublicKey } from '@solana/web3.js';
 import { BN } from 'bn.js';
 import * as crypto from 'crypto';
 
-import { createAppendIx, deserializeChangeLogEventV1, SPL_NOOP_PROGRAM_ID } from '../../src';
+import { createAppendIx, deserializeChangeLogEventV1, MPL_NOOP_PROGRAM_ID } from '../../src';
 import { MerkleTree } from '../../src/merkle-tree';
 import { createTreeOnChain, execute } from '../utils';
 
@@ -63,7 +63,7 @@ describe('Serde tests', () => {
             const accountKeys = transaction!.transaction.message.getAccountKeys();
             const noopInstruction = transaction!.meta!.innerInstructions![0].instructions[0];
             const programId = accountKeys.get(noopInstruction.programIdIndex)!;
-            if (!programId.equals(SPL_NOOP_PROGRAM_ID)) {
+            if (!programId.equals(MPL_NOOP_PROGRAM_ID)) {
                 throw Error(`Only inner ix should be a noop, but instead is a ${programId.toBase58()}`);
             }
             const cpiData = Buffer.from(bs58.decode(noopInstruction.data));

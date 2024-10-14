@@ -1576,6 +1576,8 @@ dependencies = [
 [[package]]
 name = "spl-concurrent-merkle-tree"
 version = "0.4.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "85d1bbb97252d8a1b90d3d56425038928382a306b71dbba4c836973c94b33f96"
 dependencies = [
  "bytemuck",
  "solana-program",

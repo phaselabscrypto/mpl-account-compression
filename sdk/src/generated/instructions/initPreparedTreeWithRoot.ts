@@ -5,8 +5,8 @@
  * See: https://github.com/metaplex-foundation/solita
  */
 
-import * as beet from '@metaplex-foundation/beet';
-import * as web3 from '@solana/web3.js';
+import * as beet from '@metaplex-foundation/beet'
+import * as web3 from '@solana/web3.js'
 
 /**
  * @category Instructions
@@ -14,28 +14,28 @@ import * as web3 from '@solana/web3.js';
  * @category generated
  */
 export type InitPreparedTreeWithRootInstructionArgs = {
-    rightmostIndex: number;
-    rightmostLeaf: number[] /* size: 32 */;
-    root: number[] /* size: 32 */;
-};
+  root: number[] /* size: 32 */
+  rightmostLeaf: number[] /* size: 32 */
+  rightmostIndex: number
+}
 /**
  * @category Instructions
  * @category InitPreparedTreeWithRoot
  * @category generated
  */
 export const initPreparedTreeWithRootStruct = new beet.BeetArgsStruct<
-    InitPreparedTreeWithRootInstructionArgs & {
-        instructionDiscriminator: number[] /* size: 8 */;
-    }
+  InitPreparedTreeWithRootInstructionArgs & {
+    instructionDiscriminator: number[] /* size: 8 */
+  }
 >(
-    [
-        ['instructionDiscriminator', beet.uniformFixedSizeArray(beet.u8, 8)],
-        ['root', beet.uniformFixedSizeArray(beet.u8, 32)],
-        ['rightmostLeaf', beet.uniformFixedSizeArray(beet.u8, 32)],
-        ['rightmostIndex', beet.u32],
-    ],
-    'InitPreparedTreeWithRootInstructionArgs',
-);
+  [
+    ['instructionDiscriminator', beet.uniformFixedSizeArray(beet.u8, 8)],
+    ['root', beet.uniformFixedSizeArray(beet.u8, 32)],
+    ['rightmostLeaf', beet.uniformFixedSizeArray(beet.u8, 32)],
+    ['rightmostIndex', beet.u32],
+  ],
+  'InitPreparedTreeWithRootInstructionArgs'
+)
 /**
  * Accounts required by the _initPreparedTreeWithRoot_ instruction
  *
@@ -47,13 +47,15 @@ export const initPreparedTreeWithRootStruct = new beet.BeetArgsStruct<
  * @category generated
  */
 export type InitPreparedTreeWithRootInstructionAccounts = {
-    anchorRemainingAccounts?: web3.AccountMeta[];
-    authority: web3.PublicKey;
-    merkleTree: web3.PublicKey;
-    noop: web3.PublicKey;
-};
+  merkleTree: web3.PublicKey
+  authority: web3.PublicKey
+  noop: web3.PublicKey
+  anchorRemainingAccounts?: web3.AccountMeta[]
+}
 
-export const initPreparedTreeWithRootInstructionDiscriminator = [218, 248, 192, 55, 91, 205, 122, 10];
+export const initPreparedTreeWithRootInstructionDiscriminator = [
+  218, 248, 192, 55, 91, 205, 122, 10,
+]
 
 /**
  * Creates a _InitPreparedTreeWithRoot_ instruction.
@@ -66,42 +68,42 @@ export const initPreparedTreeWithRootInstructionDiscriminator = [218, 248, 192, 
  * @category generated
  */
 export function createInitPreparedTreeWithRootInstruction(
-    accounts: InitPreparedTreeWithRootInstructionAccounts,
-    args: InitPreparedTreeWithRootInstructionArgs,
-    programId = new web3.PublicKey('cmtDvXumGCrqC1Age74AVPhSRVXJMd8PJS91L8KbNCK'),
+  accounts: InitPreparedTreeWithRootInstructionAccounts,
+  args: InitPreparedTreeWithRootInstructionArgs,
+  programId = new web3.PublicKey('mcmt6YrQEMKw8Mw43FmpRLmf7BqRnFMKmAcbxE3xkAW')
 ) {
-    const [data] = initPreparedTreeWithRootStruct.serialize({
-        instructionDiscriminator: initPreparedTreeWithRootInstructionDiscriminator,
-        ...args,
-    });
-    const keys: web3.AccountMeta[] = [
-        {
-            isSigner: false,
-            isWritable: true,
-            pubkey: accounts.merkleTree,
-        },
-        {
-            isSigner: true,
-            isWritable: false,
-            pubkey: accounts.authority,
-        },
-        {
-            isSigner: false,
-            isWritable: false,
-            pubkey: accounts.noop,
-        },
-    ];
+  const [data] = initPreparedTreeWithRootStruct.serialize({
+    instructionDiscriminator: initPreparedTreeWithRootInstructionDiscriminator,
+    ...args,
+  })
+  const keys: web3.AccountMeta[] = [
+    {
+      pubkey: accounts.merkleTree,
+      isWritable: true,
+      isSigner: false,
+    },
+    {
+      pubkey: accounts.authority,
+      isWritable: false,
+      isSigner: true,
+    },
+    {
+      pubkey: accounts.noop,
+      isWritable: false,
+      isSigner: false,
+    },
+  ]
 
-    if (accounts.anchorRemainingAccounts != null) {
-        for (const acc of accounts.anchorRemainingAccounts) {
-            keys.push(acc);
-        }
+  if (accounts.anchorRemainingAccounts != null) {
+    for (const acc of accounts.anchorRemainingAccounts) {
+      keys.push(acc)
     }
+  }
 
-    const ix = new web3.TransactionInstruction({
-        data,
-        keys,
-        programId,
-    });
-    return ix;
+  const ix = new web3.TransactionInstruction({
+    programId,
+    keys,
+    data,
+  })
+  return ix
 }

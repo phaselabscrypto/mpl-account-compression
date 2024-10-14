@@ -5,11 +5,11 @@
  * See: https://github.com/metaplex-foundation/solita
  */
 
-type ErrorWithCode = Error & { code: number };
-type MaybeErrorWithCode = ErrorWithCode | null | undefined;
+type ErrorWithCode = Error & { code: number }
+type MaybeErrorWithCode = ErrorWithCode | null | undefined
 
-const createErrorFromCodeLookup: Map<number, () => ErrorWithCode> = new Map();
-const createErrorFromNameLookup: Map<string, () => ErrorWithCode> = new Map();
+const createErrorFromCodeLookup: Map<number, () => ErrorWithCode> = new Map()
+const createErrorFromNameLookup: Map<string, () => ErrorWithCode> = new Map()
 
 /**
  * IncorrectLeafLength: 'Incorrect leaf length. Expected vec of 32 bytes'
@@ -18,18 +18,21 @@ const createErrorFromNameLookup: Map<string, () => ErrorWithCode> = new Map();
  * @category generated
  */
 export class IncorrectLeafLengthError extends Error {
-    readonly code: number = 0x1770;
-    readonly name: string = 'IncorrectLeafLength';
-    constructor() {
-        super('Incorrect leaf length. Expected vec of 32 bytes');
-        if (typeof Error.captureStackTrace === 'function') {
-            Error.captureStackTrace(this, IncorrectLeafLengthError);
-        }
+  readonly code: number = 0x1770
+  readonly name: string = 'IncorrectLeafLength'
+  constructor() {
+    super('Incorrect leaf length. Expected vec of 32 bytes')
+    if (typeof Error.captureStackTrace === 'function') {
+      Error.captureStackTrace(this, IncorrectLeafLengthError)
     }
+  }
 }
 
-createErrorFromCodeLookup.set(0x1770, () => new IncorrectLeafLengthError());
-createErrorFromNameLookup.set('IncorrectLeafLength', () => new IncorrectLeafLengthError());
+createErrorFromCodeLookup.set(0x1770, () => new IncorrectLeafLengthError())
+createErrorFromNameLookup.set(
+  'IncorrectLeafLength',
+  () => new IncorrectLeafLengthError()
+)
 
 /**
  * ConcurrentMerkleTreeError: 'Concurrent merkle tree error'
@@ -38,18 +41,24 @@ createErrorFromNameLookup.set('IncorrectLeafLength', () => new IncorrectLeafLeng
  * @category generated
  */
 export class ConcurrentMerkleTreeErrorError extends Error {
-    readonly code: number = 0x1771;
-    readonly name: string = 'ConcurrentMerkleTreeError';
-    constructor() {
-        super('Concurrent merkle tree error');
-        if (typeof Error.captureStackTrace === 'function') {
-            Error.captureStackTrace(this, ConcurrentMerkleTreeErrorError);
-        }
+  readonly code: number = 0x1771
+  readonly name: string = 'ConcurrentMerkleTreeError'
+  constructor() {
+    super('Concurrent merkle tree error')
+    if (typeof Error.captureStackTrace === 'function') {
+      Error.captureStackTrace(this, ConcurrentMerkleTreeErrorError)
     }
+  }
 }
 
-createErrorFromCodeLookup.set(0x1771, () => new ConcurrentMerkleTreeErrorError());
-createErrorFromNameLookup.set('ConcurrentMerkleTreeError', () => new ConcurrentMerkleTreeErrorError());
+createErrorFromCodeLookup.set(
+  0x1771,
+  () => new ConcurrentMerkleTreeErrorError()
+)
+createErrorFromNameLookup.set(
+  'ConcurrentMerkleTreeError',
+  () => new ConcurrentMerkleTreeErrorError()
+)
 
 /**
  * ZeroCopyError: 'Issue zero copying concurrent merkle tree data'
@@ -58,18 +67,18 @@ createErrorFromNameLookup.set('ConcurrentMerkleTreeError', () => new ConcurrentM
  * @category generated
  */
 export class ZeroCopyErrorError extends Error {
-    readonly code: number = 0x1772;
-    readonly name: string = 'ZeroCopyError';
-    constructor() {
-        super('Issue zero copying concurrent merkle tree data');
-        if (typeof Error.captureStackTrace === 'function') {
-            Error.captureStackTrace(this, ZeroCopyErrorError);
-        }
+  readonly code: number = 0x1772
+  readonly name: string = 'ZeroCopyError'
+  constructor() {
+    super('Issue zero copying concurrent merkle tree data')
+    if (typeof Error.captureStackTrace === 'function') {
+      Error.captureStackTrace(this, ZeroCopyErrorError)
     }
+  }
 }
 
-createErrorFromCodeLookup.set(0x1772, () => new ZeroCopyErrorError());
-createErrorFromNameLookup.set('ZeroCopyError', () => new ZeroCopyErrorError());
+createErrorFromCodeLookup.set(0x1772, () => new ZeroCopyErrorError())
+createErrorFromNameLookup.set('ZeroCopyError', () => new ZeroCopyErrorError())
 
 /**
  * ConcurrentMerkleTreeConstantsError: 'An unsupported max depth or max buffer size constant was provided'
@@ -78,21 +87,24 @@ createErrorFromNameLookup.set('ZeroCopyError', () => new ZeroCopyErrorError());
  * @category generated
  */
 export class ConcurrentMerkleTreeConstantsErrorError extends Error {
-    readonly code: number = 0x1773;
-    readonly name: string = 'ConcurrentMerkleTreeConstantsError';
-    constructor() {
-        super('An unsupported max depth or max buffer size constant was provided');
-        if (typeof Error.captureStackTrace === 'function') {
-            Error.captureStackTrace(this, ConcurrentMerkleTreeConstantsErrorError);
-        }
+  readonly code: number = 0x1773
+  readonly name: string = 'ConcurrentMerkleTreeConstantsError'
+  constructor() {
+    super('An unsupported max depth or max buffer size constant was provided')
+    if (typeof Error.captureStackTrace === 'function') {
+      Error.captureStackTrace(this, ConcurrentMerkleTreeConstantsErrorError)
     }
+  }
 }
 
-createErrorFromCodeLookup.set(0x1773, () => new ConcurrentMerkleTreeConstantsErrorError());
+createErrorFromCodeLookup.set(
+  0x1773,
+  () => new ConcurrentMerkleTreeConstantsErrorError()
+)
 createErrorFromNameLookup.set(
-    'ConcurrentMerkleTreeConstantsError',
-    () => new ConcurrentMerkleTreeConstantsErrorError(),
-);
+  'ConcurrentMerkleTreeConstantsError',
+  () => new ConcurrentMerkleTreeConstantsErrorError()
+)
 
 /**
  * CanopyLengthMismatch: 'Expected a different byte length for the merkle tree canopy'
@@ -101,18 +113,21 @@ createErrorFromNameLookup.set(
  * @category generated
  */
 export class CanopyLengthMismatchError extends Error {
-    readonly code: number = 0x1774;
-    readonly name: string = 'CanopyLengthMismatch';
-    constructor() {
-        super('Expected a different byte length for the merkle tree canopy');
-        if (typeof Error.captureStackTrace === 'function') {
-            Error.captureStackTrace(this, CanopyLengthMismatchError);
-        }
+  readonly code: number = 0x1774
+  readonly name: string = 'CanopyLengthMismatch'
+  constructor() {
+    super('Expected a different byte length for the merkle tree canopy')
+    if (typeof Error.captureStackTrace === 'function') {
+      Error.captureStackTrace(this, CanopyLengthMismatchError)
     }
+  }
 }
 
-createErrorFromCodeLookup.set(0x1774, () => new CanopyLengthMismatchError());
-createErrorFromNameLookup.set('CanopyLengthMismatch', () => new CanopyLengthMismatchError());
+createErrorFromCodeLookup.set(0x1774, () => new CanopyLengthMismatchError())
+createErrorFromNameLookup.set(
+  'CanopyLengthMismatch',
+  () => new CanopyLengthMismatchError()
+)
 
 /**
  * IncorrectAuthority: 'Provided authority does not match expected tree authority'
@@ -121,18 +136,21 @@ createErrorFromNameLookup.set('CanopyLengthMismatch', () => new CanopyLengthMism
  * @category generated
  */
 export class IncorrectAuthorityError extends Error {
-    readonly code: number = 0x1775;
-    readonly name: string = 'IncorrectAuthority';
-    constructor() {
-        super('Provided authority does not match expected tree authority');
-        if (typeof Error.captureStackTrace === 'function') {
-            Error.captureStackTrace(this, IncorrectAuthorityError);
-        }
+  readonly code: number = 0x1775
+  readonly name: string = 'IncorrectAuthority'
+  constructor() {
+    super('Provided authority does not match expected tree authority')
+    if (typeof Error.captureStackTrace === 'function') {
+      Error.captureStackTrace(this, IncorrectAuthorityError)
     }
+  }
 }
 
-createErrorFromCodeLookup.set(0x1775, () => new IncorrectAuthorityError());
-createErrorFromNameLookup.set('IncorrectAuthority', () => new IncorrectAuthorityError());
+createErrorFromCodeLookup.set(0x1775, () => new IncorrectAuthorityError())
+createErrorFromNameLookup.set(
+  'IncorrectAuthority',
+  () => new IncorrectAuthorityError()
+)
 
 /**
  * IncorrectAccountOwner: 'Account is owned by a different program, expected it to be owned by this program'
@@ -141,18 +159,23 @@ createErrorFromNameLookup.set('IncorrectAuthority', () => new IncorrectAuthority
  * @category generated
  */
 export class IncorrectAccountOwnerError extends Error {
-    readonly code: number = 0x1776;
-    readonly name: string = 'IncorrectAccountOwner';
-    constructor() {
-        super('Account is owned by a different program, expected it to be owned by this program');
-        if (typeof Error.captureStackTrace === 'function') {
-            Error.captureStackTrace(this, IncorrectAccountOwnerError);
-        }
+  readonly code: number = 0x1776
+  readonly name: string = 'IncorrectAccountOwner'
+  constructor() {
+    super(
+      'Account is owned by a different program, expected it to be owned by this program'
+    )
+    if (typeof Error.captureStackTrace === 'function') {
+      Error.captureStackTrace(this, IncorrectAccountOwnerError)
     }
+  }
 }
 
-createErrorFromCodeLookup.set(0x1776, () => new IncorrectAccountOwnerError());
-createErrorFromNameLookup.set('IncorrectAccountOwner', () => new IncorrectAccountOwnerError());
+createErrorFromCodeLookup.set(0x1776, () => new IncorrectAccountOwnerError())
+createErrorFromNameLookup.set(
+  'IncorrectAccountOwner',
+  () => new IncorrectAccountOwnerError()
+)
 
 /**
  * IncorrectAccountType: 'Account provided has incorrect account type'
@@ -161,18 +184,21 @@ createErrorFromNameLookup.set('IncorrectAccountOwner', () => new IncorrectAccoun
  * @category generated
  */
 export class IncorrectAccountTypeError extends Error {
-    readonly code: number = 0x1777;
-    readonly name: string = 'IncorrectAccountType';
-    constructor() {
-        super('Account provided has incorrect account type');
-        if (typeof Error.captureStackTrace === 'function') {
-            Error.captureStackTrace(this, IncorrectAccountTypeError);
-        }
+  readonly code: number = 0x1777
+  readonly name: string = 'IncorrectAccountType'
+  constructor() {
+    super('Account provided has incorrect account type')
+    if (typeof Error.captureStackTrace === 'function') {
+      Error.captureStackTrace(this, IncorrectAccountTypeError)
     }
+  }
 }
 
-createErrorFromCodeLookup.set(0x1777, () => new IncorrectAccountTypeError());
-createErrorFromNameLookup.set('IncorrectAccountType', () => new IncorrectAccountTypeError());
+createErrorFromCodeLookup.set(0x1777, () => new IncorrectAccountTypeError())
+createErrorFromNameLookup.set(
+  'IncorrectAccountType',
+  () => new IncorrectAccountTypeError()
+)
 
 /**
  * LeafIndexOutOfBounds: 'Leaf index of concurrent merkle tree is out of bounds'
@@ -181,18 +207,21 @@ createErrorFromNameLookup.set('IncorrectAccountType', () => new IncorrectAccount
  * @category generated
  */
 export class LeafIndexOutOfBoundsError extends Error {
-    readonly code: number = 0x1778;
-    readonly name: string = 'LeafIndexOutOfBounds';
-    constructor() {
-        super('Leaf index of concurrent merkle tree is out of bounds');
-        if (typeof Error.captureStackTrace === 'function') {
-            Error.captureStackTrace(this, LeafIndexOutOfBoundsError);
-        }
+  readonly code: number = 0x1778
+  readonly name: string = 'LeafIndexOutOfBounds'
+  constructor() {
+    super('Leaf index of concurrent merkle tree is out of bounds')
+    if (typeof Error.captureStackTrace === 'function') {
+      Error.captureStackTrace(this, LeafIndexOutOfBoundsError)
     }
+  }
 }
 
-createErrorFromCodeLookup.set(0x1778, () => new LeafIndexOutOfBoundsError());
-createErrorFromNameLookup.set('LeafIndexOutOfBounds', () => new LeafIndexOutOfBoundsError());
+createErrorFromCodeLookup.set(0x1778, () => new LeafIndexOutOfBoundsError())
+createErrorFromNameLookup.set(
+  'LeafIndexOutOfBounds',
+  () => new LeafIndexOutOfBoundsError()
+)
 
 /**
  * CanopyNotAllocated: 'Tree was initialized without allocating space for the canopy'
@@ -201,18 +230,21 @@ createErrorFromNameLookup.set('LeafIndexOutOfBounds', () => new LeafIndexOutOfBo
  * @category generated
  */
 export class CanopyNotAllocatedError extends Error {
-    readonly code: number = 0x1779;
-    readonly name: string = 'CanopyNotAllocated';
-    constructor() {
-        super('Tree was initialized without allocating space for the canopy');
-        if (typeof Error.captureStackTrace === 'function') {
-            Error.captureStackTrace(this, CanopyNotAllocatedError);
-        }
+  readonly code: number = 0x1779
+  readonly name: string = 'CanopyNotAllocated'
+  constructor() {
+    super('Tree was initialized without allocating space for the canopy')
+    if (typeof Error.captureStackTrace === 'function') {
+      Error.captureStackTrace(this, CanopyNotAllocatedError)
     }
+  }
 }
 
-createErrorFromCodeLookup.set(0x1779, () => new CanopyNotAllocatedError());
-createErrorFromNameLookup.set('CanopyNotAllocated', () => new CanopyNotAllocatedError());
+createErrorFromCodeLookup.set(0x1779, () => new CanopyNotAllocatedError())
+createErrorFromNameLookup.set(
+  'CanopyNotAllocated',
+  () => new CanopyNotAllocatedError()
+)
 
 /**
  * TreeAlreadyInitialized: 'Tree was already initialized'
@@ -221,18 +253,21 @@ createErrorFromNameLookup.set('CanopyNotAllocated', () => new CanopyNotAllocated
  * @category generated
  */
 export class TreeAlreadyInitializedError extends Error {
-    readonly code: number = 0x177a;
-    readonly name: string = 'TreeAlreadyInitialized';
-    constructor() {
-        super('Tree was already initialized');
-        if (typeof Error.captureStackTrace === 'function') {
-            Error.captureStackTrace(this, TreeAlreadyInitializedError);
-        }
+  readonly code: number = 0x177a
+  readonly name: string = 'TreeAlreadyInitialized'
+  constructor() {
+    super('Tree was already initialized')
+    if (typeof Error.captureStackTrace === 'function') {
+      Error.captureStackTrace(this, TreeAlreadyInitializedError)
     }
+  }
 }
 
-createErrorFromCodeLookup.set(0x177a, () => new TreeAlreadyInitializedError());
-createErrorFromNameLookup.set('TreeAlreadyInitialized', () => new TreeAlreadyInitializedError());
+createErrorFromCodeLookup.set(0x177a, () => new TreeAlreadyInitializedError())
+createErrorFromNameLookup.set(
+  'TreeAlreadyInitialized',
+  () => new TreeAlreadyInitializedError()
+)
 
 /**
  * BatchNotInitialized: 'Tree header was not initialized for batch processing'
@@ -241,18 +276,21 @@ createErrorFromNameLookup.set('TreeAlreadyInitialized', () => new TreeAlreadyIni
  * @category generated
  */
 export class BatchNotInitializedError extends Error {
-    readonly code: number = 0x177b;
-    readonly name: string = 'BatchNotInitialized';
-    constructor() {
-        super('Tree header was not initialized for batch processing');
-        if (typeof Error.captureStackTrace === 'function') {
-            Error.captureStackTrace(this, BatchNotInitializedError);
-        }
+  readonly code: number = 0x177b
+  readonly name: string = 'BatchNotInitialized'
+  constructor() {
+    super('Tree header was not initialized for batch processing')
+    if (typeof Error.captureStackTrace === 'function') {
+      Error.captureStackTrace(this, BatchNotInitializedError)
     }
+  }
 }
 
-createErrorFromCodeLookup.set(0x177b, () => new BatchNotInitializedError());
-createErrorFromNameLookup.set('BatchNotInitialized', () => new BatchNotInitializedError());
+createErrorFromCodeLookup.set(0x177b, () => new BatchNotInitializedError())
+createErrorFromNameLookup.set(
+  'BatchNotInitialized',
+  () => new BatchNotInitializedError()
+)
 
 /**
  * CanopyRootMismatch: 'Canopy root does not match the root of the tree'
@@ -261,18 +299,21 @@ createErrorFromNameLookup.set('BatchNotInitialized', () => new BatchNotInitializ
  * @category generated
  */
 export class CanopyRootMismatchError extends Error {
-    readonly code: number = 0x177c;
-    readonly name: string = 'CanopyRootMismatch';
-    constructor() {
-        super('Canopy root does not match the root of the tree');
-        if (typeof Error.captureStackTrace === 'function') {
-            Error.captureStackTrace(this, CanopyRootMismatchError);
-        }
+  readonly code: number = 0x177c
+  readonly name: string = 'CanopyRootMismatch'
+  constructor() {
+    super('Canopy root does not match the root of the tree')
+    if (typeof Error.captureStackTrace === 'function') {
+      Error.captureStackTrace(this, CanopyRootMismatchError)
     }
+  }
 }
 
-createErrorFromCodeLookup.set(0x177c, () => new CanopyRootMismatchError());
-createErrorFromNameLookup.set('CanopyRootMismatch', () => new CanopyRootMismatchError());
+createErrorFromCodeLookup.set(0x177c, () => new CanopyRootMismatchError())
+createErrorFromNameLookup.set(
+  'CanopyRootMismatch',
+  () => new CanopyRootMismatchError()
+)
 
 /**
  * CanopyRightmostLeafMismatch: 'Canopy contains nodes to the right of the rightmost leaf of the tree'
@@ -281,18 +322,26 @@ createErrorFromNameLookup.set('CanopyRootMismatch', () => new CanopyRootMismatch
  * @category generated
  */
 export class CanopyRightmostLeafMismatchError extends Error {
-    readonly code: number = 0x177d;
-    readonly name: string = 'CanopyRightmostLeafMismatch';
-    constructor() {
-        super('Canopy contains nodes to the right of the rightmost leaf of the tree');
-        if (typeof Error.captureStackTrace === 'function') {
-            Error.captureStackTrace(this, CanopyRightmostLeafMismatchError);
-        }
+  readonly code: number = 0x177d
+  readonly name: string = 'CanopyRightmostLeafMismatch'
+  constructor() {
+    super(
+      'Canopy contains nodes to the right of the rightmost leaf of the tree'
+    )
+    if (typeof Error.captureStackTrace === 'function') {
+      Error.captureStackTrace(this, CanopyRightmostLeafMismatchError)
     }
+  }
 }
 
-createErrorFromCodeLookup.set(0x177d, () => new CanopyRightmostLeafMismatchError());
-createErrorFromNameLookup.set('CanopyRightmostLeafMismatch', () => new CanopyRightmostLeafMismatchError());
+createErrorFromCodeLookup.set(
+  0x177d,
+  () => new CanopyRightmostLeafMismatchError()
+)
+createErrorFromNameLookup.set(
+  'CanopyRightmostLeafMismatch',
+  () => new CanopyRightmostLeafMismatchError()
+)
 
 /**
  * Attempts to resolve a custom program error from the provided error code.
@@ -300,8 +349,8 @@ createErrorFromNameLookup.set('CanopyRightmostLeafMismatch', () => new CanopyRig
  * @category generated
  */
 export function errorFromCode(code: number): MaybeErrorWithCode {
-    const createError = createErrorFromCodeLookup.get(code);
-    return createError != null ? createError() : null;
+  const createError = createErrorFromCodeLookup.get(code)
+  return createError != null ? createError() : null
 }
 
 /**
@@ -310,6 +359,6 @@ export function errorFromCode(code: number): MaybeErrorWithCode {
  * @category generated
  */
 export function errorFromName(name: string): MaybeErrorWithCode {
-    const createError = createErrorFromNameLookup.get(name);
-    return createError != null ? createError() : null;
+  const createError = createErrorFromNameLookup.get(name)
+  return createError != null ? createError() : null
 }

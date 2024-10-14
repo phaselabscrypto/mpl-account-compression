@@ -1050,6 +1050,24 @@ dependencies = [
 ]
 
 [[package]]
+name = "mpl-account-compression"
+version = "0.4.1"
+dependencies = [
+ "anchor-lang",
+ "bytemuck",
+ "mpl-noop",
+ "solana-program",
+ "spl-concurrent-merkle-tree",
+]
+
+[[package]]
+name = "mpl-noop"
+version = "0.2.0"
+dependencies = [
+ "solana-program",
+]
+
+[[package]]
 name = "num-bigint"
 version = "0.4.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1563,17 +1581,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "spl-account-compression"
-version = "0.4.1"
-dependencies = [
- "anchor-lang",
- "bytemuck",
- "solana-program",
- "spl-concurrent-merkle-tree",
- "spl-noop",
-]
-
-[[package]]
 name = "spl-concurrent-merkle-tree"
 version = "0.4.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1582,13 +1589,6 @@ dependencies = [
  "bytemuck",
  "solana-program",
  "thiserror",
-]
-
-[[package]]
-name = "spl-noop"
-version = "0.2.0"
-dependencies = [
- "solana-program",
 ]
 
 [[package]]

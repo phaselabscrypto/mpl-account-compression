@@ -43,7 +43,7 @@ pnpm lint:fix
 ```
 ***Note: It is important to run the lint step after generating with Solita to maintain the existing ordering of struct members.***
 
-***Note: You also have to currently manually add `export * from './types';` to sdk/src/generated/index.ts due to an issue with Solita.***
+***Note: Do to a Solita generation issue, you also have to manually add `export * from './types';` to sdk/src/generated/index.ts, or if there are no other changes, simply checkout the previously-generated version of the file.***
 
 ### Build and Test with the Typescript SDK
 

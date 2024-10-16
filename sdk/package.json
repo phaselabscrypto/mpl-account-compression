@@ -1,10 +1,10 @@
 {
-  "name": "@solana/spl-account-compression",
-  "description": "SPL Account Compression Program JS API",
+  "name": "@metaplex-foundation/mpl-account-compression",
+  "description": "Metaplex Fork of Solana Program Library Account Compression Program JS SDK",
   "version": "0.4.1",
-  "author": "Solana Labs Maintainers <maintainers@solanalabs.com>",
+  "author": "Metaplex Developers <dev@metaplex.com>",
   "repository": {
-    "url": "https://github.com/solana-labs/solana-program-library",
+    "url": "https://github.com/metaplex-foundation/mpl-account-compression",
     "type": "git"
   },
   "license": "Apache-2.0",
@@ -35,6 +35,7 @@
   "scripts": {
     "build": "rm -rf dist/ && tsc -p tsconfig.json",
     "build:program": "cargo build-sbf --manifest-path=../programs/account-compression/Cargo.toml && cargo build-sbf --manifest-path=../programs/noop/Cargo.toml",
+    "generate": "DEBUG='(solita|rustbin):(info|error)' solita",
     "lint": "set -ex; eslint . --ext .js,.ts",
     "lint:fix": "eslint . --fix --ext .js,.ts",
     "docs": "rm -rf docs/ && typedoc --out docs",

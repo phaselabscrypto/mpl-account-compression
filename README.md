@@ -1,4 +1,4 @@
-# Account Compression (Beta)
+# MPL Account Compression
 
 This on-chain program provides an interface for composing smart-contracts to create and use
 SPL ConcurrentMerkleTrees. The primary application of using SPL ConcurrentMerkleTrees is
@@ -16,13 +16,34 @@ This repo is a modified fork of the [original repository](https://github.com/sol
 
 ## Rust Packages
 
-* `spl-account-compression`: SDK for interacting with account compression program
-* `spl-noop`: SDK for interacting with no op program, primarily for circumventing log truncation
-* `spl-concurrent-merkle-tree`: SDK for creating SPL ConcurrentMerkleTrees
+* `mpl-account-compression`: SDK for interacting with account compression program
+* `mpl-noop`: SDK for interacting with no op program, primarily for circumventing log truncation
+
+### Building the Rust Packages
+
+From the root directory of the repository:
+
+```
+cd sdk
+pnpm install
+pnpm build:program
+```
 
 ## Typescript SDK
 
-`@solana/spl-account-compression` is generated using Metaplex Foundation's [Solita](https://github.com/metaplex-foundation/solita/). 
+`@metaplex-foundation/mpl-account-compression` is generated using Metaplex Foundation's [Solita](https://github.com/metaplex-foundation/solita/).
+
+### Building the Typescript SDK
+
+From the root directory of the repository:
+
+```
+cd sdk
+pnpm install
+pnpm generate
+pnpm lint:fix
+```
+***Note: It is important to run the lint step after generating with Solita to maintain the existing ordering of struct members.***
 
 ## Testing and Development
 
@@ -30,9 +51,11 @@ Testing contracts locally requires the SDK to be built.
 
 With a built local SDK, the test suite can be ran with:
 
-1. `pnpm link @solana/spl-account-compression`
+1. `pnpm link @metaplex-foundation/mpl-account-compression`
 2. `pnpm i`
 3. `pnpm test`
+
+Also see [the SDK README](./sdk/README.md) for more information on testing.
 
 ## Security
 

@@ -1,4 +1,4 @@
-# `@solana/spl-account-compression`
+# `@metaplex-foundation/mpl-account-compression`
 
 A TypeScript library for interacting with SPL Account Compression and SPL NoOp. 
 For more information, see the full [Solana account compression SDK documentation](https://solana-labs.github.io/solana-program-library/account-compression/sdk/).
@@ -6,13 +6,13 @@ For more information, see the full [Solana account compression SDK documentation
 ## Install
 
 ```shell
-npm install --save @solana/spl-account-compression @solana/web3.js
+npm install --save @metaplex-foundation/mpl-account-compression @solana/web3.js
 ```
 
 __OR__
 
 ```shell
-yarn add @solana/spl-account-compression @solana/web3.js
+yarn add @metaplex-foundation/mpl-account-compression @solana/web3.js
 ```
 
 ## Information
@@ -165,7 +165,7 @@ await sendAndConfirmTransaction(connection, tx, [payer]);
 
 Here are some examples using account compression in the wild:
 
-* Solana Program Library [tests](https://github.com/solana-labs/solana-program-library/tree/master/account-compression/sdk/tests)
+* This repo's [tests](./sdk/tests)
 
 * Metaplex Program Library Compressed NFT [tests](https://github.com/metaplex-foundation/mpl-bubblegum/tree/main/clients/js/test)
 
@@ -173,7 +173,7 @@ Here are some examples using account compression in the wild:
 
 0. Install dependencies with `pnpm i`.
 
-1. Generate the Solita SDK with `pnpm solita`.
+1. Generate the Solita SDK with `pnpm solita` (or `pnpm generate`).
 
 2. Then build the SDK with `pnpm build`.
 

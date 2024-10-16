@@ -37,13 +37,12 @@ pnpm build:program
 From the sdk directory of the repository:
 
 ```
-pnpm install
 pnpm generate
 pnpm lint:fix
 ```
 ***Note: It is important to run the lint step after generating with Solita to maintain the existing ordering of struct members.***
 
-***Note: Do to a Solita generation issue, you also have to manually add `export * from './types';` to sdk/src/generated/index.ts, or if there are no other changes, simply checkout the previously-generated version of the file.***
+***Note: Due to a Solita generation issue, you also have to manually add `export * from './types';` to sdk/src/generated/index.ts, or if there are no other changes, simply checkout the previously-generated version of the file.***
 
 ### Build and Test with the Typescript SDK
 

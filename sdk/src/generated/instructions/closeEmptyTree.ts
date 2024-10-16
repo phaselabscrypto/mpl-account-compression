@@ -5,8 +5,8 @@
  * See: https://github.com/metaplex-foundation/solita
  */
 
-import * as beet from '@metaplex-foundation/beet'
-import * as web3 from '@solana/web3.js'
+import * as beet from '@metaplex-foundation/beet';
+import * as web3 from '@solana/web3.js';
 
 /**
  * @category Instructions
@@ -14,11 +14,11 @@ import * as web3 from '@solana/web3.js'
  * @category generated
  */
 export const closeEmptyTreeStruct = new beet.BeetArgsStruct<{
-  instructionDiscriminator: number[] /* size: 8 */
+    instructionDiscriminator: number[] /* size: 8 */;
 }>(
-  [['instructionDiscriminator', beet.uniformFixedSizeArray(beet.u8, 8)]],
-  'CloseEmptyTreeInstructionArgs'
-)
+    [['instructionDiscriminator', beet.uniformFixedSizeArray(beet.u8, 8)]],
+    'CloseEmptyTreeInstructionArgs',
+);
 /**
  * Accounts required by the _closeEmptyTree_ instruction
  *
@@ -30,15 +30,13 @@ export const closeEmptyTreeStruct = new beet.BeetArgsStruct<{
  * @category generated
  */
 export type CloseEmptyTreeInstructionAccounts = {
-  merkleTree: web3.PublicKey
-  authority: web3.PublicKey
-  recipient: web3.PublicKey
-  anchorRemainingAccounts?: web3.AccountMeta[]
-}
+    anchorRemainingAccounts?: web3.AccountMeta[];
+    authority: web3.PublicKey;
+    merkleTree: web3.PublicKey;
+    recipient: web3.PublicKey;
+};
 
-export const closeEmptyTreeInstructionDiscriminator = [
-  50, 14, 219, 107, 78, 103, 16, 103,
-]
+export const closeEmptyTreeInstructionDiscriminator = [50, 14, 219, 107, 78, 103, 16, 103];
 
 /**
  * Creates a _CloseEmptyTree_ instruction.
@@ -49,40 +47,40 @@ export const closeEmptyTreeInstructionDiscriminator = [
  * @category generated
  */
 export function createCloseEmptyTreeInstruction(
-  accounts: CloseEmptyTreeInstructionAccounts,
-  programId = new web3.PublicKey('mcmt6YrQEMKw8Mw43FmpRLmf7BqRnFMKmAcbxE3xkAW')
+    accounts: CloseEmptyTreeInstructionAccounts,
+    programId = new web3.PublicKey('mcmt6YrQEMKw8Mw43FmpRLmf7BqRnFMKmAcbxE3xkAW'),
 ) {
-  const [data] = closeEmptyTreeStruct.serialize({
-    instructionDiscriminator: closeEmptyTreeInstructionDiscriminator,
-  })
-  const keys: web3.AccountMeta[] = [
-    {
-      pubkey: accounts.merkleTree,
-      isWritable: true,
-      isSigner: false,
-    },
-    {
-      pubkey: accounts.authority,
-      isWritable: false,
-      isSigner: true,
-    },
-    {
-      pubkey: accounts.recipient,
-      isWritable: true,
-      isSigner: false,
-    },
-  ]
+    const [data] = closeEmptyTreeStruct.serialize({
+        instructionDiscriminator: closeEmptyTreeInstructionDiscriminator,
+    });
+    const keys: web3.AccountMeta[] = [
+        {
+            isSigner: false,
+            isWritable: true,
+            pubkey: accounts.merkleTree,
+        },
+        {
+            isSigner: true,
+            isWritable: false,
+            pubkey: accounts.authority,
+        },
+        {
+            isSigner: false,
+            isWritable: true,
+            pubkey: accounts.recipient,
+        },
+    ];
 
-  if (accounts.anchorRemainingAccounts != null) {
-    for (const acc of accounts.anchorRemainingAccounts) {
-      keys.push(acc)
+    if (accounts.anchorRemainingAccounts != null) {
+        for (const acc of accounts.anchorRemainingAccounts) {
+            keys.push(acc);
+        }
     }
-  }
 
-  const ix = new web3.TransactionInstruction({
-    programId,
-    keys,
-    data,
-  })
-  return ix
+    const ix = new web3.TransactionInstruction({
+        data,
+        keys,
+        programId,
+    });
+    return ix;
 }

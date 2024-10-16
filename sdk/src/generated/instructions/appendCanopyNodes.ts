@@ -5,8 +5,8 @@
  * See: https://github.com/metaplex-foundation/solita
  */
 
-import * as beet from '@metaplex-foundation/beet'
-import * as web3 from '@solana/web3.js'
+import * as beet from '@metaplex-foundation/beet';
+import * as web3 from '@solana/web3.js';
 
 /**
  * @category Instructions
@@ -14,26 +14,26 @@ import * as web3 from '@solana/web3.js'
  * @category generated
  */
 export type AppendCanopyNodesInstructionArgs = {
-  startIndex: number
-  canopyNodes: number[] /* size: 32 */[]
-}
+    canopyNodes: number[] /* size: 32 */[];
+    startIndex: number;
+};
 /**
  * @category Instructions
  * @category AppendCanopyNodes
  * @category generated
  */
 export const appendCanopyNodesStruct = new beet.FixableBeetArgsStruct<
-  AppendCanopyNodesInstructionArgs & {
-    instructionDiscriminator: number[] /* size: 8 */
-  }
+    AppendCanopyNodesInstructionArgs & {
+        instructionDiscriminator: number[] /* size: 8 */;
+    }
 >(
-  [
-    ['instructionDiscriminator', beet.uniformFixedSizeArray(beet.u8, 8)],
-    ['startIndex', beet.u32],
-    ['canopyNodes', beet.array(beet.uniformFixedSizeArray(beet.u8, 32))],
-  ],
-  'AppendCanopyNodesInstructionArgs'
-)
+    [
+        ['instructionDiscriminator', beet.uniformFixedSizeArray(beet.u8, 8)],
+        ['startIndex', beet.u32],
+        ['canopyNodes', beet.array(beet.uniformFixedSizeArray(beet.u8, 32))],
+    ],
+    'AppendCanopyNodesInstructionArgs',
+);
 /**
  * Accounts required by the _appendCanopyNodes_ instruction
  *
@@ -45,15 +45,13 @@ export const appendCanopyNodesStruct = new beet.FixableBeetArgsStruct<
  * @category generated
  */
 export type AppendCanopyNodesInstructionAccounts = {
-  merkleTree: web3.PublicKey
-  authority: web3.PublicKey
-  noop: web3.PublicKey
-  anchorRemainingAccounts?: web3.AccountMeta[]
-}
+    anchorRemainingAccounts?: web3.AccountMeta[];
+    authority: web3.PublicKey;
+    merkleTree: web3.PublicKey;
+    noop: web3.PublicKey;
+};
 
-export const appendCanopyNodesInstructionDiscriminator = [
-  139, 155, 238, 167, 11, 243, 132, 205,
-]
+export const appendCanopyNodesInstructionDiscriminator = [139, 155, 238, 167, 11, 243, 132, 205];
 
 /**
  * Creates a _AppendCanopyNodes_ instruction.
@@ -66,42 +64,42 @@ export const appendCanopyNodesInstructionDiscriminator = [
  * @category generated
  */
 export function createAppendCanopyNodesInstruction(
-  accounts: AppendCanopyNodesInstructionAccounts,
-  args: AppendCanopyNodesInstructionArgs,
-  programId = new web3.PublicKey('mcmt6YrQEMKw8Mw43FmpRLmf7BqRnFMKmAcbxE3xkAW')
+    accounts: AppendCanopyNodesInstructionAccounts,
+    args: AppendCanopyNodesInstructionArgs,
+    programId = new web3.PublicKey('mcmt6YrQEMKw8Mw43FmpRLmf7BqRnFMKmAcbxE3xkAW'),
 ) {
-  const [data] = appendCanopyNodesStruct.serialize({
-    instructionDiscriminator: appendCanopyNodesInstructionDiscriminator,
-    ...args,
-  })
-  const keys: web3.AccountMeta[] = [
-    {
-      pubkey: accounts.merkleTree,
-      isWritable: true,
-      isSigner: false,
-    },
-    {
-      pubkey: accounts.authority,
-      isWritable: false,
-      isSigner: true,
-    },
-    {
-      pubkey: accounts.noop,
-      isWritable: false,
-      isSigner: false,
-    },
-  ]
+    const [data] = appendCanopyNodesStruct.serialize({
+        instructionDiscriminator: appendCanopyNodesInstructionDiscriminator,
+        ...args,
+    });
+    const keys: web3.AccountMeta[] = [
+        {
+            isSigner: false,
+            isWritable: true,
+            pubkey: accounts.merkleTree,
+        },
+        {
+            isSigner: true,
+            isWritable: false,
+            pubkey: accounts.authority,
+        },
+        {
+            isSigner: false,
+            isWritable: false,
+            pubkey: accounts.noop,
+        },
+    ];
 
-  if (accounts.anchorRemainingAccounts != null) {
-    for (const acc of accounts.anchorRemainingAccounts) {
-      keys.push(acc)
+    if (accounts.anchorRemainingAccounts != null) {
+        for (const acc of accounts.anchorRemainingAccounts) {
+            keys.push(acc);
+        }
     }
-  }
 
-  const ix = new web3.TransactionInstruction({
-    programId,
-    keys,
-    data,
-  })
-  return ix
+    const ix = new web3.TransactionInstruction({
+        data,
+        keys,
+        programId,
+    });
+    return ix;
 }

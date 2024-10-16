@@ -21,10 +21,9 @@ This repo is a modified fork of the [original repository](https://github.com/sol
 
 ### Building the Rust Packages
 
-From the root directory of the repository:
+From the sdk directory of the repository:
 
 ```
-cd sdk
 pnpm install
 pnpm build:program
 ```
@@ -33,29 +32,29 @@ pnpm build:program
 
 `@metaplex-foundation/mpl-account-compression` is generated using Metaplex Foundation's [Solita](https://github.com/metaplex-foundation/solita/).
 
-### Building the Typescript SDK
+### Generate the Typescript SDK
 
-From the root directory of the repository:
+From the sdk directory of the repository:
 
 ```
-cd sdk
 pnpm install
 pnpm generate
 pnpm lint:fix
 ```
 ***Note: It is important to run the lint step after generating with Solita to maintain the existing ordering of struct members.***
 
-## Testing and Development
+***Note: You also have to currently manually add `export * from './types';` to sdk/src/generated/index.ts due to an issue with Solita.***
 
-Testing contracts locally requires the SDK to be built. 
+### Build and Test with the Typescript SDK
 
-With a built local SDK, the test suite can be ran with:
+Testing contracts locally requires the SDK to be built.
 
-1. `pnpm link @metaplex-foundation/mpl-account-compression`
-2. `pnpm i`
-3. `pnpm test`
+From the sdk directory of the repository:
 
-Also see [the SDK](./sdk/) for more information on testing.
+```
+pnpm build
+pnpm test
+```
 
 ## Security
 

@@ -1,6 +1,7 @@
 import { PublicKey } from '@solana/web3.js';
 export * from './errors';
 export * from './instructions';
+export * from './types';
 
 /**
  * Program address

@@ -169,12 +169,6 @@ Here are some examples using account compression in the wild:
 
 * Metaplex Program Library Compressed NFT [tests](https://github.com/metaplex-foundation/mpl-bubblegum/tree/main/clients/js/test)
 
-## Build from Source
+## Build from Source and Test
 
-0. Install dependencies with `pnpm i`.
-
-1. Generate the Solita SDK with `pnpm solita` (or `pnpm generate`).
-
-2. Then build the SDK with `pnpm build`.
-
-3. Run tests with `pnpm test`. (Expect `jest` to detect an open handle that prevents it from exiting naturally)
+See [this repo's root](../..)

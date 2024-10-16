@@ -165,7 +165,7 @@ await sendAndConfirmTransaction(connection, tx, [payer]);
 
 Here are some examples using account compression in the wild:
 
-* This repo's [tests](./sdk/tests)
+* This repo's [tests](./tests)
 
 * Metaplex Program Library Compressed NFT [tests](https://github.com/metaplex-foundation/mpl-bubblegum/tree/main/clients/js/test)
 

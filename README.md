@@ -55,7 +55,7 @@ With a built local SDK, the test suite can be ran with:
 2. `pnpm i`
 3. `pnpm test`
 
-Also see [the SDK README](./sdk/README.md) for more information on testing.
+Also see [the SDK](./sdk/) for more information on testing.
 
 ## Security
 

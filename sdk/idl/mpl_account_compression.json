@@ -490,6 +490,271 @@
       "args": []
     }
   ],
+  "types": [
+    {
+      "name": "ApplicationDataEventV1",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "applicationData",
+            "type": "bytes"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ChangeLogEventV1",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "id",
+            "docs": [
+              "Public key of the ConcurrentMerkleTree"
+            ],
+            "type": "publicKey"
+          },
+          {
+            "name": "path",
+            "docs": [
+              "Nodes of off-chain merkle tree needed by indexer"
+            ],
+            "type": {
+              "vec": {
+                "defined": "PathNode"
+              }
+            }
+          },
+          {
+            "name": "seq",
+            "docs": [
+              "Index corresponding to the number of successful operations on this tree.",
+              "Used by the off-chain indexer to figure out when there are gaps to be backfilled."
+            ],
+            "type": "u64"
+          },
+          {
+            "name": "index",
+            "docs": [
+              "Bitmap of node parity (used when hashing)"
+            ],
+            "type": "u32"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ConcurrentMerkleTreeHeader",
+      "docs": [
+        "Initialization parameters for an SPL ConcurrentMerkleTree.",
+        "",
+        "Only the following permutations are valid:",
+        "",
+        "| max_depth | max_buffer_size       |",
+        "| --------- | --------------------- |",
+        "| 14        | (64, 256, 1024, 2048) |",
+        "| 20        | (64, 256, 1024, 2048) |",
+        "| 24        | (64, 256, 512, 1024, 2048) |",
+        "| 26        | (64, 256, 512, 1024, 2048) |",
+        "| 30        | (512, 1024, 2048) |",
+        ""
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "accountType",
+            "docs": [
+              "Account type"
+            ],
+            "type": {
+              "defined": "CompressionAccountType"
+            }
+          },
+          {
+            "name": "header",
+            "docs": [
+              "Versioned header"
+            ],
+            "type": {
+              "defined": "ConcurrentMerkleTreeHeaderData"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "ConcurrentMerkleTreeHeaderDataV1",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "maxBufferSize",
+            "docs": [
+              "Buffer of changelogs stored on-chain.",
+              "Must be a power of 2; see above table for valid combinations."
+            ],
+            "type": "u32"
+          },
+          {
+            "name": "maxDepth",
+            "docs": [
+              "Depth of the SPL ConcurrentMerkleTree to store.",
+              "Tree capacity can be calculated as power(2, max_depth).",
+              "See above table for valid options."
+            ],
+            "type": "u32"
+          },
+          {
+            "name": "authority",
+            "docs": [
+              "Authority that validates the content of the trees.",
+              "Typically a program, e.g., the Bubblegum contract validates that leaves are valid NFTs."
+            ],
+            "type": "publicKey"
+          },
+          {
+            "name": "creationSlot",
+            "docs": [
+              "Slot corresponding to when the Merkle tree was created.",
+              "Provides a lower-bound on what slot to start (re-)building a tree from."
+            ],
+            "type": "u64"
+          },
+          {
+            "name": "isBatchInitialized",
+            "docs": [
+              "A flag indicating whether the tree has been initialized with a root.",
+              "This field was added together with the `finalize_tree_with_root` instruction.",
+              "It takes 1 byte of space taken from the previous padding for existing accounts."
+            ],
+            "type": "bool"
+          },
+          {
+            "name": "padding",
+            "docs": [
+              "Needs padding for the account to be 8-byte aligned",
+              "8-byte alignment is necessary to zero-copy the SPL ConcurrentMerkleTree"
+            ],
+            "type": {
+              "array": [
+                "u8",
+                5
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "PathNode",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "node",
+            "type": {
+              "array": [
+                "u8",
+                32
+              ]
+            }
+          },
+          {
+            "name": "index",
+            "type": "u32"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ApplicationDataEvent",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "V1",
+            "fields": [
+              {
+                "defined": "ApplicationDataEventV1"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "ChangeLogEvent",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "V1",
+            "fields": [
+              {
+                "defined": "ChangeLogEventV1"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "AccountCompressionEvent",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "ChangeLog",
+            "fields": [
+              {
+                "defined": "ChangeLogEvent"
+              }
+            ]
+          },
+          {
+            "name": "ApplicationData",
+            "fields": [
+              {
+                "defined": "ApplicationDataEvent"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "CompressionAccountType",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "Uninitialized"
+          },
+          {
+            "name": "ConcurrentMerkleTree"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ConcurrentMerkleTreeHeaderData",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "V1",
+            "fields": [
+              {
+                "defined": "ConcurrentMerkleTreeHeaderDataV1"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
   "errors": [
     {
       "code": 6000,

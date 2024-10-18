@@ -21,14 +21,15 @@ export type ConcurrentMerkleTreeHeaderDataV1 = {
  * @category userTypes
  * @category generated
  */
-export const concurrentMerkleTreeHeaderDataV1Beet = new beet.BeetArgsStruct<ConcurrentMerkleTreeHeaderDataV1>(
-    [
-        ['maxBufferSize', beet.u32],
-        ['maxDepth', beet.u32],
-        ['authority', beetSolana.publicKey],
-        ['creationSlot', beet.u64],
-        ['isBatchInitialized', beet.bool],
-        ['padding', beet.uniformFixedSizeArray(beet.u8, 5)],
-    ],
-    'ConcurrentMerkleTreeHeaderDataV1',
-);
+export const concurrentMerkleTreeHeaderDataV1Beet =
+    new beet.BeetArgsStruct<ConcurrentMerkleTreeHeaderDataV1>(
+        [
+            ['maxBufferSize', beet.u32],
+            ['maxDepth', beet.u32],
+            ['authority', beetSolana.publicKey],
+            ['creationSlot', beet.u64],
+            ['isBatchInitialized', beet.bool],
+            ['padding', beet.uniformFixedSizeArray(beet.u8, 5)],
+        ],
+        'ConcurrentMerkleTreeHeaderDataV1',
+    );

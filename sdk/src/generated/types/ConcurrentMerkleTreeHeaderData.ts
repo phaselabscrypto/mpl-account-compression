@@ -35,7 +35,8 @@ export type ConcurrentMerkleTreeHeaderDataRecord = {
  * @category enums
  * @category generated
  */
-export type ConcurrentMerkleTreeHeaderData = beet.DataEnumKeyAsKind<ConcurrentMerkleTreeHeaderDataRecord>;
+export type ConcurrentMerkleTreeHeaderData =
+    beet.DataEnumKeyAsKind<ConcurrentMerkleTreeHeaderDataRecord>;
 
 export const isConcurrentMerkleTreeHeaderDataV1 = (
     x: ConcurrentMerkleTreeHeaderData,
@@ -45,12 +46,13 @@ export const isConcurrentMerkleTreeHeaderDataV1 = (
  * @category userTypes
  * @category generated
  */
-export const concurrentMerkleTreeHeaderDataBeet = beet.dataEnum<ConcurrentMerkleTreeHeaderDataRecord>([
-    [
-        'V1',
-        new beet.BeetArgsStruct<ConcurrentMerkleTreeHeaderDataRecord['V1']>(
-            [['fields', beet.fixedSizeTuple([concurrentMerkleTreeHeaderDataV1Beet])]],
-            'ConcurrentMerkleTreeHeaderDataRecord["V1"]',
-        ),
-    ],
-]) as beet.FixableBeet<ConcurrentMerkleTreeHeaderData, ConcurrentMerkleTreeHeaderData>;
+export const concurrentMerkleTreeHeaderDataBeet =
+    beet.dataEnum<ConcurrentMerkleTreeHeaderDataRecord>([
+        [
+            'V1',
+            new beet.BeetArgsStruct<ConcurrentMerkleTreeHeaderDataRecord['V1']>(
+                [['fields', beet.fixedSizeTuple([concurrentMerkleTreeHeaderDataV1Beet])]],
+                'ConcurrentMerkleTreeHeaderDataRecord["V1"]',
+            ),
+        ],
+    ]) as beet.FixableBeet<ConcurrentMerkleTreeHeaderData, ConcurrentMerkleTreeHeaderData>;

@@ -34,8 +34,9 @@ export type ApplicationDataEventRecord = {
  */
 export type ApplicationDataEvent = beet.DataEnumKeyAsKind<ApplicationDataEventRecord>;
 
-export const isApplicationDataEventV1 = (x: ApplicationDataEvent): x is ApplicationDataEvent & { __kind: 'V1' } =>
-    x.__kind === 'V1';
+export const isApplicationDataEventV1 = (
+    x: ApplicationDataEvent,
+): x is ApplicationDataEvent & { __kind: 'V1' } => x.__kind === 'V1';
 
 /**
  * @category userTypes

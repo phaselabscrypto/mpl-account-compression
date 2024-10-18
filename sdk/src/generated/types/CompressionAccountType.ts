@@ -19,7 +19,6 @@ export enum CompressionAccountType {
  * @category userTypes
  * @category generated
  */
-export const compressionAccountTypeBeet = beet.fixedScalarEnum(CompressionAccountType) as beet.FixedSizeBeet<
+export const compressionAccountTypeBeet = beet.fixedScalarEnum(
     CompressionAccountType,
-    CompressionAccountType
->;
+) as beet.FixedSizeBeet<CompressionAccountType, CompressionAccountType>;

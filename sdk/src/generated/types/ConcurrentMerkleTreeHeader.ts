@@ -8,7 +8,10 @@
 import * as beet from '@metaplex-foundation/beet';
 
 import { CompressionAccountType, compressionAccountTypeBeet } from './CompressionAccountType';
-import { ConcurrentMerkleTreeHeaderData, concurrentMerkleTreeHeaderDataBeet } from './ConcurrentMerkleTreeHeaderData';
+import {
+    ConcurrentMerkleTreeHeaderData,
+    concurrentMerkleTreeHeaderDataBeet,
+} from './ConcurrentMerkleTreeHeaderData';
 export type ConcurrentMerkleTreeHeader = {
     accountType: CompressionAccountType;
     header: ConcurrentMerkleTreeHeaderData;
@@ -18,10 +21,11 @@ export type ConcurrentMerkleTreeHeader = {
  * @category userTypes
  * @category generated
  */
-export const concurrentMerkleTreeHeaderBeet = new beet.FixableBeetArgsStruct<ConcurrentMerkleTreeHeader>(
-    [
-        ['accountType', compressionAccountTypeBeet],
-        ['header', concurrentMerkleTreeHeaderDataBeet],
-    ],
-    'ConcurrentMerkleTreeHeader',
-);
+export const concurrentMerkleTreeHeaderBeet =
+    new beet.FixableBeetArgsStruct<ConcurrentMerkleTreeHeader>(
+        [
+            ['accountType', compressionAccountTypeBeet],
+            ['header', concurrentMerkleTreeHeaderDataBeet],
+        ],
+        'ConcurrentMerkleTreeHeader',
+    );

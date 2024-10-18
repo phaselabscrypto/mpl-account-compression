@@ -34,7 +34,8 @@ export type ChangeLogEventRecord = {
  */
 export type ChangeLogEvent = beet.DataEnumKeyAsKind<ChangeLogEventRecord>;
 
-export const isChangeLogEventV1 = (x: ChangeLogEvent): x is ChangeLogEvent & { __kind: 'V1' } => x.__kind === 'V1';
+export const isChangeLogEventV1 = (x: ChangeLogEvent): x is ChangeLogEvent & { __kind: 'V1' } =>
+    x.__kind === 'V1';
 
 /**
  * @category userTypes
